@@ -4,7 +4,6 @@ import MuiDrawer from "@mui/material/Drawer";
 import { type Theme } from "@mui/material/styles";
 import Logo from "./Logo";
 import Menu from "./Menu";
-import { drawerWidth } from "../../../objects/objects";
 import type { DrawerProps } from "../../../types/components";
 import User from "./User";
 import useStyles from "../../../hooks/useStyles";

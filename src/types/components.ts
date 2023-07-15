@@ -26,3 +26,10 @@ export interface MenuItemProps<T> {
   icon: React.ComponentType<T>;
   href: string;
 }
+
+export interface IconWithBgColorProps {
+  icon: React.ComponentType<{ sx: Record<string, any> }>;
+  bgColor: string;
+  iconStyles: Record<string, any>;
+  IconButtonStyles: Record<string, any>;
+}

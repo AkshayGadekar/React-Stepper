@@ -16,7 +16,7 @@ const ParentMenu = "MY INBOX";
 const Menu = () => {
   return (
     <>
-      <List sx={{ pt: 0 }}>
+      <List sx={{ pt: 0 }} className="menu-list">
         <InboxMenu />
         {menus.map((menu, index) => (
           <MenuItem
