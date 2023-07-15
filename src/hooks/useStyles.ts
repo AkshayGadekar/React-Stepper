@@ -9,7 +9,7 @@ const useStyles = (
 
   const styles = useMemo(() => {
     return func(theme, dependencies);
-  }, [dependencies]);
+  }, dependencies);
 
   return styles;
 };
