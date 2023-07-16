@@ -1,9 +1,9 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import { type Theme, useTheme } from "@mui/material/styles";
-import useStyles from "../../../hooks/useStyles";
-import type { IconWithBgColorProps } from "../../../types/components";
-import { convertHexToRGBA } from "../../../functions/helpers";
+import useStyles from "../../hooks/useStyles";
+import type { IconButtonContainerProps } from "../../types/components";
+import { convertHexToRGBA } from "../../functions/helpers";
 
 const makeStyles = (theme: Theme, dependencies: any[]) => ({
   iconStyles: {
@@ -19,12 +19,12 @@ const makeStyles = (theme: Theme, dependencies: any[]) => ({
   },
 });
 
-const IconWithBgColor = ({
+const IconButtonContainer = ({
   icon,
   bgColor,
   iconStyles,
   IconButtonStyles,
-}: IconWithBgColorProps) => {
+}: IconButtonContainerProps) => {
   const theme = useTheme();
   const styles = useStyles(makeStyles, [bgColor]);
   const Icon = icon;
@@ -45,4 +45,4 @@ const IconWithBgColor = ({
   );
 };
 
-export default IconWithBgColor;
+export default IconButtonContainer;

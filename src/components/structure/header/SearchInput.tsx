@@ -12,7 +12,7 @@ const SearchInput = ({
   handleDrawerToggle: () => void;
 }) => {
   return (
-    <Box display="flex" columnGap="4px">
+    <Box sx={{ display: "flex", columnGap: "4px" }}>
       <ToggleDrawer handleDrawerToggle={handleDrawerToggle} />
       <TextField
         label="Search..."

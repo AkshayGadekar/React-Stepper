@@ -8,4 +8,11 @@ export const typography = {
     fontWeight: "500",
     color: "#384046",
   },
+  thick: {
+    fontSize: "1rem",
+    fontWeight: 500,
+  },
+  thin: {
+    fontWeight: 100,
+  },
 };

@@ -27,9 +27,23 @@ export interface MenuItemProps<T> {
   href: string;
 }
 
-export interface IconWithBgColorProps {
+export interface Tabs {
+  label: string;
+  icon: React.ComponentType<{ sx: Record<string, any> }>;
+}
+[];
+
+export interface IconButtonContainerProps {
   icon: React.ComponentType<{ sx: Record<string, any> }>;
   bgColor: string;
-  iconStyles: Record<string, any>;
-  IconButtonStyles: Record<string, any>;
+  iconStyles?: Record<string, any>;
+  IconButtonStyles?: Record<string, any>;
+}
+
+export interface IconContainerProps {
+  icon: React.ComponentType<{ sx: Record<string, any> }>;
+  bgColor: string;
+  color: string;
+  iconStyles?: Record<string, any>;
+  IconContainerStyles?: Record<string, any>;
 }

@@ -1,10 +1,10 @@
-import { createTheme, type Components } from "@mui/material/styles";
+import { createTheme, type Components, type Theme } from "@mui/material/styles";
 import {
-  drawerWidth,
-  primaryColor,
-  secondaryColor,
-  drawerBackgroundColor,
-  headerBottomShadow,
+  DRAWER_WIDTH,
+  PRIMARY_COLOR,
+  SECONDARY_COLOR,
+  DRAWER_BG_COLOR,
+  HEADER_BOTTOM_SHADONW,
 } from "../config";
 
 const defaultTheme = createTheme();
@@ -19,7 +19,7 @@ export const components: Components = {
         "& #nprogress": {
           pointerEvents: "none",
           "& > div[role=bar]": {
-            backgroundColor: secondaryColor,
+            backgroundColor: SECONDARY_COLOR,
             position: "fixed",
             zIndex: "2001",
             top: 0,
@@ -46,8 +46,8 @@ export const components: Components = {
           minHeight: "80px",
         },
         "&.logoToolbar": {
-          backgroundColor: drawerBackgroundColor,
-          boxShadow: headerBottomShadow,
+          backgroundColor: DRAWER_BG_COLOR,
+          boxShadow: HEADER_BOTTOM_SHADONW,
         },
       },
     },
@@ -56,7 +56,7 @@ export const components: Components = {
     styleOverrides: {
       root: {
         backgroundColor: "#fff",
-        boxShadow: headerBottomShadow,
+        boxShadow: HEADER_BOTTOM_SHADONW,
       },
     },
   },
@@ -65,7 +65,7 @@ export const components: Components = {
       root: {
         columnGap: "1.5rem",
         "&.active": {
-          backgroundColor: secondaryColor,
+          backgroundColor: SECONDARY_COLOR,
         },
         "& .MuiListItemIcon-root": {
           minWidth: "auto",
@@ -82,10 +82,71 @@ export const components: Components = {
       paper: {
         boxSizing: "border-box",
         border: 0,
-        backgroundColor: drawerBackgroundColor,
-        width: drawerWidth,
-        "& .menu-list .MuiTypography-root": {
-          fontWeight: 100,
+        backgroundColor: DRAWER_BG_COLOR,
+        width: DRAWER_WIDTH,
+      },
+    },
+  },
+  MuiOutlinedInput: {
+    styleOverrides: {
+      root: {
+        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+          borderColor: "#000",
+        },
+      },
+    },
+  },
+  MuiInputLabel: {
+    styleOverrides: {
+      root: {
+        "&.Mui-focused": {
+          color: "#000",
+        },
+      },
+    },
+  },
+  MuiTabs: {
+    styleOverrides: {
+      root: {
+        marginBottom: "1rem",
+        "& .MuiTabs-flexContainer": {
+          columnGap: "40px",
+        },
+      },
+      indicator: ({ ownerState, theme }) => ({
+        height: "4px",
+        borderRadius: "10px",
+        backgroundColor: (theme as Theme).palette.primary.dark,
+      }),
+    },
+  },
+  MuiTab: {
+    styleOverrides: {
+      root: ({ ownerState, theme }) => ({
+        flexDirection: "row",
+        textTransform: "capitalize",
+        alignItems: "center",
+        columnGap: "10px",
+        paddingLeft: 0,
+        paddingRight: 0,
+        "&.Mui-selected": {
+          color: (theme as Theme).palette.primary.dark,
+        },
+      }),
+    },
+  },
+  MuiStepper: {
+    styleOverrides: {
+      root: { marginBottom: "1rem", width: "75%" },
+    },
+  },
+  MuiStep: {
+    styleOverrides: {
+      root: {
+        //flexGrow: 0,
+        padding: 0,
+        "& .MuiStepIcon-text": {
+          fill: "#fff",
         },
       },
     },

@@ -26,7 +26,10 @@ const MenuItem = (props: MenuItemProps<MenuItemIconProps>) => {
         <ListItemIcon>
           <Icon />
         </ListItemIcon>
-        <ListItemText primary={props.label} />
+        <ListItemText
+          primaryTypographyProps={{ variant: "thin" }}
+          primary={props.label}
+        />
       </ListItemButton>
     </ListItem>
   );

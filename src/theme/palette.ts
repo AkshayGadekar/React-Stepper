@@ -1,10 +1,10 @@
-import { primaryColor, secondaryColor } from "../config";
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "../config";
 
 export const palette = {
   primary: {
-    main: primaryColor,
+    main: PRIMARY_COLOR,
   },
   secondary: {
-    main: secondaryColor,
+    main: SECONDARY_COLOR,
   },
 };

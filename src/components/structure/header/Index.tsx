@@ -5,7 +5,7 @@ import type { Theme } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchInput from "./SearchInput";
-import { drawerWidth } from "../../../config";
+import { DRAWER_WIDTH } from "../../../config";
 import type { HeaderProps } from "../../../types/components";
 import useStyles from "../../../hooks/useStyles";
 import Options from "./Options";
@@ -16,8 +16,8 @@ const makeStyles = (theme: Theme, dependencies: any[]) => ({
     columnGap: ".5rem",
   },
   appBar: {
-    width: { sm: `calc(100% - ${!dependencies[0] ? drawerWidth : 0}px)` },
-    ml: { sm: `${!dependencies[0] ? drawerWidth : 0}px` },
+    width: { sm: `calc(100% - ${!dependencies[0] ? DRAWER_WIDTH : 0}px)` },
+    ml: { sm: `${!dependencies[0] ? DRAWER_WIDTH : 0}px` },
   },
 });
 

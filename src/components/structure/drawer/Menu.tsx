@@ -11,7 +11,7 @@ import useStyles from "../../../hooks/useStyles";
 import MenuItem from "../../utilities/MenuItem";
 import menus from "../../../objects/menu";
 
-const ParentMenu = "MY INBOX";
+const PARENT_MENU = "MY INBOX";
 
 const Menu = () => {
   return (
@@ -48,9 +48,12 @@ const InboxMenu = () => {
   const styles = useStyles(makeStyles, []);
 
   return (
-    <ListItem key={ParentMenu} disablePadding>
+    <ListItem key={PARENT_MENU} disablePadding>
       <ListItemButton sx={styles.listItemButton}>
-        <ListItemText primary={ParentMenu} />
+        <ListItemText
+          primary={PARENT_MENU}
+          primaryTypographyProps={{ variant: "thin" }}
+        />
         <ListItemIcon sx={styles.listItemIcon}>
           <PlayArrowIcon />
         </ListItemIcon>

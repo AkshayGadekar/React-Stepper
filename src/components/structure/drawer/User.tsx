@@ -37,12 +37,9 @@ const makeStylesUserInfo = (theme: Theme, dependencies: any[]) => ({
     justifyContent: "center",
   },
   userName: {
-    fontWeight: 500,
-    fontSize: "1rem",
     lineHeight: 1.2,
   },
   companyTitle: {
-    fontWeight: 100,
     lineHeight: 1.2,
   },
 });
@@ -51,8 +48,12 @@ const UserInfo = () => {
 
   return (
     <Box sx={styles.container}>
-      <Typography sx={styles.userName}>Dheeraj Katarya</Typography>
-      <Typography sx={styles.companyTitle}>Phone.com</Typography>
+      <Typography variant="thick" sx={styles.userName}>
+        Dheeraj Katarya
+      </Typography>
+      <Typography variant="thin" sx={styles.companyTitle}>
+        Phone.com
+      </Typography>
     </Box>
   );
 };
