@@ -7,7 +7,11 @@ import steps from "./../../../objects/steps";
 
 const StepperBar = ({ activeStep }: { activeStep: number }) => {
   return (
-    <Stepper activeStep={activeStep} alternativeLabel>
+    <Stepper
+      activeStep={activeStep}
+      alternativeLabel
+      sx={{ width: { xs: "100%", lg: "60%" } }}
+    >
       {steps.map((label, index) => {
         const stepProps: { completed?: boolean } = {};
         const labelProps: {

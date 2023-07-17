@@ -7,7 +7,7 @@ const useResponsiveDrawer = (): ResponsiveDrawer => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hideDrawer, setHideDrawer] = useState(false);
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleDrawerToggle = () => {
     if (!matchesSM) {

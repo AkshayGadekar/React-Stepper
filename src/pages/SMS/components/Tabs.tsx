@@ -19,7 +19,12 @@ const Tabs = () => {
   };
 
   return (
-    <TabsContainer value={value} onChange={handleChange}>
+    <TabsContainer
+      value={value}
+      onChange={handleChange}
+      variant="scrollable"
+      scrollButtons="auto"
+    >
       {tabs.map((tab, index) => (
         <Tab
           key={tab.label}

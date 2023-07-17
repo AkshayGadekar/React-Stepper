@@ -4,7 +4,7 @@ import {
   PRIMARY_COLOR,
   SECONDARY_COLOR,
   DRAWER_BG_COLOR,
-  HEADER_BOTTOM_SHADONW,
+  HEADER_BOTTOM_SHADOW,
 } from "../config";
 
 const defaultTheme = createTheme();
@@ -47,7 +47,7 @@ export const components: Components = {
         },
         "&.logoToolbar": {
           backgroundColor: DRAWER_BG_COLOR,
-          boxShadow: HEADER_BOTTOM_SHADONW,
+          boxShadow: HEADER_BOTTOM_SHADOW,
         },
       },
     },
@@ -56,7 +56,7 @@ export const components: Components = {
     styleOverrides: {
       root: {
         backgroundColor: "#fff",
-        boxShadow: HEADER_BOTTOM_SHADONW,
+        boxShadow: HEADER_BOTTOM_SHADOW,
       },
     },
   },
@@ -120,12 +120,15 @@ export const components: Components = {
   },
   MuiTabs: {
     styleOverrides: {
-      root: {
+      root: ({ theme }) => ({
         marginBottom: "1rem",
         "& .MuiTabs-flexContainer": {
-          columnGap: "40px",
+          columnGap: "20px",
+          [(theme as Theme).breakpoints.up("md")]: {
+            columnGap: "40px",
+          },
         },
-      },
+      }),
       indicator: ({ ownerState, theme }) => ({
         height: "4px",
         borderRadius: "10px",
@@ -150,7 +153,7 @@ export const components: Components = {
   },
   MuiStepper: {
     styleOverrides: {
-      root: { marginBottom: "1rem", width: "50%" },
+      root: { marginBottom: "1rem" },
     },
   },
   MuiStep: {
@@ -187,6 +190,13 @@ export const components: Components = {
         color: "#fff",
         minWidth: "120px",
         borderRadius: "20px",
+      },
+    },
+  },
+  MuiFormHelperText: {
+    styleOverrides: {
+      root: {
+        margin: 0,
       },
     },
   },

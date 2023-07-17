@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
-import officeImg from "./../../../media/images/office.png";
+import officeImg from "./../../../../media/images/office.png";
 
 const FIRST_STEP = "Brand Registration";
 const FIRST_STEP_WARNING =

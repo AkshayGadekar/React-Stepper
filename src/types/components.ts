@@ -52,3 +52,10 @@ export interface FieldLabelProps {
   primaryLabel: JSX.Element;
   secondaryLabel?: JSX.Element;
 }
+
+export interface StepControlsProps {
+  handleBack: () => void;
+  activeStep: number;
+  handleNext: () => void;
+  steps: string[];
+}

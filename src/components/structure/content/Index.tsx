@@ -10,7 +10,7 @@ const Index = ({ hideDrawer }: ContentProps) => {
     <Box
       component="main"
       sx={{
-        width: { sm: `calc(100% - ${!hideDrawer ? DRAWER_WIDTH : 0}px)` },
+        width: { md: `calc(100% - ${!hideDrawer ? DRAWER_WIDTH : 0}px)` },
       }}
     >
       <Toolbar />

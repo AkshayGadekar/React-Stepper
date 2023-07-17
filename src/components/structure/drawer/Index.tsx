@@ -10,10 +10,10 @@ import useStyles from "../../../hooks/useStyles";
 
 const makeStyles = (theme: Theme, dependencies: any[]) => ({
   temporaryDrawer: {
-    display: { xs: "block", sm: "none" },
+    display: { xs: "block", md: "none" },
   },
   permanentDrawer: {
-    display: { xs: "none", sm: !dependencies[0] ? "block" : "none" },
+    display: { xs: "none", md: !dependencies[0] ? "block" : "none" },
   },
 });
 

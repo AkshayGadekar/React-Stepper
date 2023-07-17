@@ -22,3 +22,8 @@ export const convertHexToRGBA = (hexCode: string, opacity: number = 1) => {
 
   return `rgba(${r},${g},${b},${opacity})`;
 };
+
+export const makeStatement = (value: string) => {
+  const newValue = value.replaceAll("_", " ");
+  return newValue;
+};

@@ -16,8 +16,8 @@ const makeStyles = (theme: Theme, dependencies: any[]) => ({
     columnGap: ".5rem",
   },
   appBar: {
-    width: { sm: `calc(100% - ${!dependencies[0] ? DRAWER_WIDTH : 0}px)` },
-    ml: { sm: `${!dependencies[0] ? DRAWER_WIDTH : 0}px` },
+    width: { md: `calc(100% - ${!dependencies[0] ? DRAWER_WIDTH : 0}px)` },
+    ml: { md: `${!dependencies[0] ? DRAWER_WIDTH : 0}px` },
   },
 });
 
