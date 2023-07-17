@@ -96,11 +96,24 @@ export const components: Components = {
       },
     },
   },
+  MuiFilledInput: {
+    styleOverrides: {
+      root: {
+        borderRadius: 0,
+      },
+    },
+    defaultProps: {
+      hiddenLabel: true,
+    },
+  },
   MuiInputLabel: {
     styleOverrides: {
       root: {
         "&.Mui-focused": {
           color: "#000",
+        },
+        "&.MuiInputLabel-shrink:not(.MuiInputLabel-outlined)": {
+          display: "none",
         },
       },
     },
@@ -127,8 +140,8 @@ export const components: Components = {
         textTransform: "capitalize",
         alignItems: "center",
         columnGap: "10px",
-        paddingLeft: 0,
-        paddingRight: 0,
+        padding: 0,
+        minHeight: "70px",
         "&.Mui-selected": {
           color: (theme as Theme).palette.primary.dark,
         },
@@ -137,17 +150,43 @@ export const components: Components = {
   },
   MuiStepper: {
     styleOverrides: {
-      root: { marginBottom: "1rem", width: "75%" },
+      root: { marginBottom: "1rem", width: "50%" },
     },
   },
   MuiStep: {
     styleOverrides: {
       root: {
-        //flexGrow: 0,
         padding: 0,
         "& .MuiStepIcon-text": {
           fill: "#fff",
         },
+        "& :is(.Mui-active, .Mui-completed) .MuiTypography-root": {
+          fontWeight: "700!important",
+        },
+      },
+    },
+  },
+  MuiLink: {
+    styleOverrides: {
+      root: {
+        color: "#3ea5c2",
+      },
+    },
+  },
+  MuiCheckbox: {
+    styleOverrides: {
+      root: ({ theme }) => ({
+        borderRadius: "10px",
+        color: (theme as Theme).palette.grey[500],
+      }),
+    },
+  },
+  MuiButton: {
+    styleOverrides: {
+      root: {
+        color: "#fff",
+        minWidth: "120px",
+        borderRadius: "20px",
       },
     },
   },

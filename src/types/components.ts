@@ -47,3 +47,8 @@ export interface IconContainerProps {
   iconStyles?: Record<string, any>;
   IconContainerStyles?: Record<string, any>;
 }
+
+export interface FieldLabelProps {
+  primaryLabel: JSX.Element;
+  secondaryLabel?: JSX.Element;
+}
