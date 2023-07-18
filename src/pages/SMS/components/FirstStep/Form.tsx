@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef, useImperativeHandle } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
@@ -12,6 +12,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import { useTheme, type Theme } from "@mui/material/styles";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { StepValue } from "./../../../../types/components";
 import { ALPHA_REGEX, ALPHA_REGEX_ERROR } from "../../../../config";
 import { log, makeStatement } from "../../../../functions/helpers";
 import selectOptions from "../../../../objects/verticalOptions";
@@ -46,7 +47,7 @@ const validationSchema = Yup.object().shape({
     .matches(ALPHA_REGEX, ALPHA_REGEX_ERROR),
   country: Yup.string()
     .required("Country is required")
-    .min(1, "Minimum 1 characters")
+    .min(3, "Minimum 3 characters")
     .max(20, "Maximum 20 characters")
     .matches(/^[A-Za-z]*$/, "Only alphabates are allowed"),
   business_id: Yup.string()
@@ -75,17 +76,17 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-const FirstStepForm = () => {
+const Form = forwardRef(({ stepValues }: { stepValues: StepValue }, ref) => {
   const theme = useTheme();
   const styles = useStyles(makeStyles, []);
 
   const [initialValues] = useState({
-    business_name: "",
-    country: "",
-    business_id: "",
-    vertical: "",
-    stock_symbol: "",
-    business_type: selectChecks,
+    business_name: stepValues.values.business_name || "",
+    country: stepValues.values.country || "",
+    business_id: stepValues.values.business_id || "",
+    vertical: stepValues.values.vertical || "",
+    stock_symbol: stepValues.values.stock_symbol || "",
+    business_type: stepValues.values.business_type || selectChecks,
   });
 
   const formik = useFormik({
@@ -109,7 +110,25 @@ const FirstStepForm = () => {
     formik.setFieldTouched("business_type", true, false);
   };
 
-  log("formik", formik.values, formik.touched, formik.errors);
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        getStepValues: (): StepValue => {
+          const stepState = { isValid: false, values: {} };
+          formik.handleSubmit();
+          if ((formik.dirty || stepValues.isValid) && formik.isValid) {
+            stepState.isValid = true;
+            stepState.values = formik.values;
+          }
+          return stepState;
+        },
+      };
+    },
+    [formik.isValid, formik.dirty, formik.values]
+  );
+
+  log("formik", formik.values, formik.touched, formik.errors, formik.isValid);
 
   return (
     <Box sx={{ my: "1rem" }}>
@@ -141,7 +160,8 @@ const FirstStepForm = () => {
                 : false
             }
             helperText={
-              formik.touched.business_name && formik.errors.business_name
+              formik.touched.business_name &&
+              (formik.errors.business_name as string)
             }
           />
         </Grid>
@@ -164,7 +184,9 @@ const FirstStepForm = () => {
             error={
               formik.touched.country && formik.errors.country ? true : false
             }
-            helperText={formik.touched.country && formik.errors.country}
+            helperText={
+              formik.touched.country && (formik.errors.country as string)
+            }
           />
         </Grid>
         <Grid item md={6} width="100%">
@@ -189,7 +211,10 @@ const FirstStepForm = () => {
                 ? true
                 : false
             }
-            helperText={formik.touched.business_id && formik.errors.business_id}
+            helperText={
+              formik.touched.business_id &&
+              (formik.errors.business_id as string)
+            }
           />
           <Link href="#" variant="body2">
             Don't have EIN?
@@ -216,7 +241,9 @@ const FirstStepForm = () => {
             error={
               formik.touched.vertical && formik.errors.vertical ? true : false
             }
-            helperText={formik.touched.vertical && formik.errors.vertical}
+            helperText={
+              formik.touched.vertical && (formik.errors.vertical as string)
+            }
           >
             {selectOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -249,7 +276,8 @@ const FirstStepForm = () => {
                 : false
             }
             helperText={
-              formik.touched.stock_symbol && formik.errors.stock_symbol
+              formik.touched.stock_symbol &&
+              (formik.errors.stock_symbol as string)
             }
           />
         </Grid>
@@ -306,6 +334,6 @@ const FirstStepForm = () => {
       </Grid>
     </Box>
   );
-};
+});
 
-export default FirstStepForm;
+export default Form;

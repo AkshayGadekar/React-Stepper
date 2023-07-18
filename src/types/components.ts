@@ -59,3 +59,14 @@ export interface StepControlsProps {
   handleNext: () => void;
   steps: string[];
 }
+
+export interface StepValues {
+  firstStep: StepValue;
+  secondStep: StepValue;
+  thirdStep: StepValue;
+}
+
+export interface StepValue {
+  isValid: boolean;
+  values: Record<string, any>;
+}

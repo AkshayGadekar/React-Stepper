@@ -17,14 +17,6 @@ const StepperBar = ({ activeStep }: { activeStep: number }) => {
         const labelProps: {
           optional?: React.ReactNode;
         } = {};
-        // if (isStepOptional(index)) {
-        //   labelProps.optional = (
-        //     <Typography variant="caption">Optional</Typography>
-        //   );
-        // }
-        // if (isStepSkipped(index)) {
-        //   stepProps.completed = false;
-        // }
         return (
           <Step key={label} {...stepProps}>
             <StepLabel {...labelProps}>

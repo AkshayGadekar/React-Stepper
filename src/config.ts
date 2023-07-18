@@ -12,7 +12,18 @@ export const HEADER_BOTTOM_SHADOW: string =
 export const STEPPER_BOX_BOTTOM_SHADOW: string =
   "0 15px 21px -10px rgb(0 0 0 / 20%)";
 
-export const ALPHA_REGEX = new RegExp(/^[a-zA-Z0-9\s\-_]*$/);
+export const TABLE_BORDER_COLOR: string = "rgba(224, 224, 224, 1)";
 
+export const ALPHA_REGEX = new RegExp(/^[a-zA-Z0-9\s\-_]*$/);
 export const ALPHA_REGEX_ERROR =
   "Only alphanumeric characters with space, hyphen or dash are allowed";
+
+export const PHONE_REGEX = new RegExp(
+  /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4,6}$/
+);
+export const PHONE_REGEX_ERROR = "Invalid phone number";
+
+export const WEBSITE_REGEX = new RegExp(
+  /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi
+);
+export const WEBSITE_REGEX_ERROR = "Invalid website URL";

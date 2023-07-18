@@ -5,6 +5,7 @@ import {
   SECONDARY_COLOR,
   DRAWER_BG_COLOR,
   HEADER_BOTTOM_SHADOW,
+  TABLE_BORDER_COLOR,
 } from "../config";
 
 const defaultTheme = createTheme();
@@ -148,6 +149,12 @@ export const components: Components = {
         "&.Mui-selected": {
           color: (theme as Theme).palette.primary.dark,
         },
+        [(theme as Theme).breakpoints.down("sm")]: {
+          flexDirection: "column",
+          flexGrow: 1,
+          flexShrink: 1,
+          "& .MuiTypography-root": { padding: "4px 0 4px 0" },
+        },
       }),
     },
   },
@@ -171,15 +178,17 @@ export const components: Components = {
   },
   MuiLink: {
     styleOverrides: {
-      root: {
+      root: ({ theme }) => ({
         color: "#3ea5c2",
-      },
+        "&.inside-table-cell": {
+          color: `${(theme as Theme).palette.primary.main}!important`,
+        },
+      }),
     },
   },
   MuiCheckbox: {
     styleOverrides: {
       root: ({ theme }) => ({
-        borderRadius: "10px",
         color: (theme as Theme).palette.grey[500],
       }),
     },
@@ -197,6 +206,25 @@ export const components: Components = {
     styleOverrides: {
       root: {
         margin: 0,
+      },
+    },
+  },
+  MuiTableContainer: {
+    styleOverrides: {
+      root: {
+        borderRadius: 0,
+        boxShadow: "none",
+        border: `solid 1px ${TABLE_BORDER_COLOR}`,
+      },
+    },
+  },
+  MuiTableHead: {
+    styleOverrides: {
+      root: {
+        backgroundColor: "#f4f5f6",
+        "& .MuiTableCell-head": {
+          color: "#888888",
+        },
       },
     },
   },
