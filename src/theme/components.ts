@@ -31,7 +31,7 @@ export const components: Components = {
         },
       },
       main: {
-        backgroundColor: "rgba(0,0,0,0.02)",
+        //backgroundColor: "rgba(0,0,0,0.02)",
         height: "100vh",
         marginLeft: "auto",
         "& .page": {
@@ -206,6 +206,7 @@ export const components: Components = {
     styleOverrides: {
       root: {
         margin: 0,
+        fontWeight: 500,
       },
     },
   },
@@ -225,6 +226,13 @@ export const components: Components = {
         "& .MuiTableCell-head": {
           color: "#888888",
         },
+      },
+    },
+  },
+  MuiAccordionSummary: {
+    styleOverrides: {
+      root: {
+        borderBottom: `solid 1px ${TABLE_BORDER_COLOR}`,
       },
     },
   },

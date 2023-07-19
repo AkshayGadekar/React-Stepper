@@ -8,7 +8,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { type Theme } from "@mui/material/styles";
 import useStyles from "../../../../hooks/useStyles";
-import { TABLE_BORDER_COLOR } from "../../../../config";
+import {
+  TABLE_BORDER_COLOR,
+  TOTAL_CHARGES_LABEL,
+  TOTAL_CHARGES,
+} from "../../../../config";
 
 const makeStyles = (theme: Theme, dependencies: any[]) => ({
   tableContainer: { mb: 4, border: "none" },
@@ -38,7 +42,7 @@ const rows = [
   createData("Charges after Discounts and Pro-rates:", "$4.00", "pro-rates"),
   createData("State and Local taxes", "$0.60", "taxes"),
   createData("Subtotal", "$4.60", "subtotal"),
-  createData("Total charges to Credit Card:", "$4.60", "charges"),
+  createData(`${TOTAL_CHARGES_LABEL}:`, TOTAL_CHARGES, "charges"),
 ];
 
 const TotalCountTable = () => {
@@ -46,7 +50,7 @@ const TotalCountTable = () => {
 
   return (
     <TableContainer component={Paper} sx={styles.tableContainer}>
-      <Table aria-label="period table">
+      <Table aria-label="count table">
         <TableBody>
           {rows.map((row) => (
             <TableRow

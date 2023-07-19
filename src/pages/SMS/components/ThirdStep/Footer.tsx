@@ -6,16 +6,20 @@ import { useTheme, type Theme } from "@mui/material/styles";
 import FormHelperText from "@mui/material/FormHelperText";
 import { StepValue } from "./../../../../types/components";
 import useStyles from "../../../../hooks/useStyles";
-import { TABLE_BORDER_COLOR } from "../../../../config";
+import {
+  TABLE_BORDER_COLOR,
+  TOTAL_CHARGES_LABEL,
+  TOTAL_CHARGES,
+} from "../../../../config";
 
 const makeStyles = (theme: Theme, dependencies: any[]) => ({
   display: "flex",
   flexDirection: "row",
   alignItems: "flex-start",
-  columnGap: "10px",
   pt: "1rem",
   "& .MuiCheckbox-root": {
-    p: 0,
+    position: "relative",
+    bottom: "10px",
   },
   "& .MuiTypography-root": {
     cursor: "pointer",
@@ -26,26 +30,43 @@ const PAYMENT_INFO =
   "All charges will appear on your statement this way Phone.com. We'll use this payment method on file for the account. Your payment information is encrypted and processed on a secure server.";
 
 const Footer = forwardRef(({ stepValues }: { stepValues: StepValue }, ref) => {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(
+    stepValues.values.terms_check !== undefined
+      ? (stepValues.values.terms_check as boolean)
+      : true
+  );
   const [error, setError] = useState("");
   const styles = useStyles(makeStyles, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
+    const checked = event.target.checked;
+    setChecked(checked);
+    if (checked) {
+      setError("");
+    }
   };
 
   useImperativeHandle(
     ref,
     () => {
       return {
-        getStepValues: (): StepValue => {
-          const stepState = { isValid: false, values: {} };
+        getStepValues: (direction: "back" | "next" = "next"): StepValue => {
+          const stepState: StepValue = { isValid: false, values: {} };
+          stepState.values[TOTAL_CHARGES_LABEL] = TOTAL_CHARGES;
+
+          if (direction === "back") {
+            stepState.isValid = checked;
+            stepState.values.terms_check = checked;
+            return stepState;
+          }
+
           if (!checked) {
             setError("Please accept terms and conditions");
             return stepState;
           }
+
           stepState.isValid = true;
-          stepState.values = { terms_check: true };
+          stepState.values.terms_check = true;
           return stepState;
         },
       };
@@ -78,7 +99,9 @@ const Footer = forwardRef(({ stepValues }: { stepValues: StepValue }, ref) => {
           <PrimaryColorInlineText text={"SMS Message Policy"} />.
         </Typography>
       </Box>
-      <FormHelperText error>{error}</FormHelperText>
+      <FormHelperText error sx={{ pl: 1.5 }}>
+        {error}
+      </FormHelperText>
     </Box>
   );
 });

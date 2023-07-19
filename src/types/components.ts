@@ -58,6 +58,12 @@ export interface StepControlsProps {
   activeStep: number;
   handleNext: () => void;
   steps: string[];
+  allStepValues: StepValues;
+}
+
+export interface StepValue {
+  isValid: boolean;
+  values: Record<string, any>;
 }
 
 export interface StepValues {
@@ -66,7 +72,8 @@ export interface StepValues {
   thirdStep: StepValue;
 }
 
-export interface StepValue {
-  isValid: boolean;
-  values: Record<string, any>;
+export interface SnackBarProps {
+  open: boolean;
+  handleClose: (event?: React.SyntheticEvent | Event, reason?: string) => void;
+  message: string;
 }

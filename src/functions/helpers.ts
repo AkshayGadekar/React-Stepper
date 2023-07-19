@@ -1,3 +1,5 @@
+import { boolean } from "yup";
+
 export const log = (...params: any[]): void => {
   const debug = process.env.REACT_APP_APP_DEBUG;
   if (debug != "true") return;
@@ -26,4 +28,34 @@ export const convertHexToRGBA = (hexCode: string, opacity: number = 1) => {
 export const makeStatement = (value: string) => {
   const newValue = value.replaceAll("_", " ");
   return newValue;
+};
+
+export const makeSingleWord = (value: string) => {
+  const newValue = value.replaceAll(" ", "-");
+  return newValue;
+};
+
+export const filterValue = (value: any) => {
+  const valueType = typeof value;
+  let newValue = value;
+  if (valueType === "boolean") {
+    newValue = value === true ? "TRUE" : "FALSE";
+  } else if (value === "") {
+    newValue = "-";
+  }
+
+  return newValue;
+};
+
+export const saveIntoLocalStorage = (key: string, value: any) => {
+  const newValue = JSON.stringify(value);
+  localStorage.setItem(key, newValue);
+};
+
+export const getFromLocalStorage = (key: string) => {
+  const value = localStorage.getItem(key);
+  if (value === undefined || value === null) {
+    return null;
+  }
+  return JSON.parse(value);
 };

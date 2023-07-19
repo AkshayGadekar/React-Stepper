@@ -18,6 +18,13 @@ export const ALPHA_REGEX = new RegExp(/^[a-zA-Z0-9\s\-_]*$/);
 export const ALPHA_REGEX_ERROR =
   "Only alphanumeric characters with space, hyphen or dash are allowed";
 
+export const ALPHABET_REGEX = new RegExp(/^[A-Za-z]*$/);
+export const ALPHABET_REGEX_ERROR = "Only alphabates are allowed";
+
+export const COMPARISON_REGEX = new RegExp(/^[^\<\>]+$/);
+export const COMPARISON_REGEX_ERROR =
+  "Less than or greater than symbols are not allowed";
+
 export const PHONE_REGEX = new RegExp(
   /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4,6}$/
 );
@@ -27,3 +34,6 @@ export const WEBSITE_REGEX = new RegExp(
   /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi
 );
 export const WEBSITE_REGEX_ERROR = "Invalid website URL";
+
+export const TOTAL_CHARGES_LABEL = "Total charges to Credit Card";
+export const TOTAL_CHARGES = "$4.60";
