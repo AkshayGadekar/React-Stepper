@@ -8,7 +8,7 @@ import { type Theme } from "@mui/material/styles";
 import SnackBar from "../../../components/utilities/SnackBar";
 import { StepControlsProps } from "../../../types/components";
 import useStyles from "../../../hooks/useStyles";
-import { log, saveIntoLocalStorage } from "../../../functions/helpers";
+import { saveIntoLocalStorage } from "../../../functions/helpers";
 
 const makeStyles = (theme: Theme, dependencies: any[]) => {
   return {

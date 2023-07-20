@@ -1,5 +1,3 @@
-import { boolean } from "yup";
-
 export const log = (...params: any[]): void => {
   const debug = process.env.REACT_APP_APP_DEBUG;
   if (debug != "true") return;

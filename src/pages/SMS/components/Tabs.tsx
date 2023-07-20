@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import TabsContainer from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import tabs from "../../../objects/tabs";

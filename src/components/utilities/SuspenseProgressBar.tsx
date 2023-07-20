@@ -1,8 +1,6 @@
-import React from 'react';
+import React from "react";
 import { useEffect } from "react";
 import nProgress from "nprogress";
-// import "nprogress/nprogress.css";
-// import "../nprogress.css";
 
 const SuspenseProgressBar = () => {
   useEffect(() => {
@@ -15,6 +13,6 @@ const SuspenseProgressBar = () => {
   });
 
   return <></>;
-}
+};
 
 export default SuspenseProgressBar;

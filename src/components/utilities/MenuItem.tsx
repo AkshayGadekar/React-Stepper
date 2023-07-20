@@ -4,8 +4,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { NavLink } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
-import { useLocation } from "react-router-dom";
 import type { MenuItemProps, MenuItemIconProps } from "../../types/components";
 
 const MenuItem = (props: MenuItemProps<MenuItemIconProps>) => {

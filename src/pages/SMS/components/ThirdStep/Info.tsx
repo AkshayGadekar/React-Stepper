@@ -2,7 +2,6 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
-import officeImg from "./../../../../media/images/office.png";
 
 const STEP = "Brand Registration Payment Confirmation";
 const STEP_WARNING =

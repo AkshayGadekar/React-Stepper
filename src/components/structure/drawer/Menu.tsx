@@ -1,6 +1,5 @@
 import React from "react";
 import List from "@mui/material/List";
-import Box from "@mui/material/Box";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
