@@ -8,10 +8,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Link from "@mui/material/Link";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { type Theme } from "@mui/material/styles";
-import useStyles from "../../../../hooks/useStyles";
+import { ThirdStepTaxesTableStyles } from "../../../../types/styles";
+import { makeStyles, type Theme } from "mui-styles-hook";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
+const useStyles = makeStyles<ThirdStepTaxesTableStyles>((theme: Theme) => ({
   tableContainer: { mb: 4 },
   tableRow: { "&:last-child td, &:last-child th": { border: 0 } },
   icon: { verticalAlign: "bottom" },
@@ -25,7 +25,7 @@ const makeStyles = (theme: Theme, dependencies: any[]) => ({
   lastTableCell: {
     color: theme.palette.primary.dark,
   },
-});
+}));
 
 function createData(taxes: string, amount: string) {
   return { taxes, amount };
@@ -34,7 +34,7 @@ function createData(taxes: string, amount: string) {
 const rows = [createData("State and local taxes", "$0.60")];
 
 const TaxesTable = () => {
-  const styles = useStyles(makeStyles, []);
+  const styles = useStyles();
   return (
     <TableContainer component={Paper} sx={styles.tableContainer}>
       <Table aria-label="taxes table">

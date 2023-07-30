@@ -6,10 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { type Theme } from "@mui/material/styles";
-import useStyles from "../../../../hooks/useStyles";
+import { ThirdStepPeriodTableStyles } from "../../../../types/styles";
+import { makeStyles, type Theme } from "mui-styles-hook";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
+const useStyles = makeStyles<ThirdStepPeriodTableStyles>((theme: Theme) => ({
   tableContainer: { mb: 4 },
   tableRow: { "&:last-child td, &:last-child th": { border: 0 } },
   lastTableRow: {
@@ -22,7 +22,7 @@ const makeStyles = (theme: Theme, dependencies: any[]) => ({
   lastTableCell: {
     color: theme.palette.primary.dark,
   },
-});
+}));
 
 function createData(
   period: string,
@@ -45,7 +45,7 @@ const rows = [
 ];
 
 const PeriodTable = () => {
-  const styles = useStyles(makeStyles, []);
+  const styles = useStyles();
 
   return (
     <TableContainer component={Paper} sx={styles.tableContainer}>

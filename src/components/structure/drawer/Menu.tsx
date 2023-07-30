@@ -5,8 +5,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { type Theme } from "@mui/material/styles";
-import useStyles from "../../../hooks/useStyles";
+import { makeStyles, type Theme } from "mui-styles-hook";
+import { InboxMenuStyles } from "../../../types/styles";
 import MenuItem from "../../utilities/MenuItem";
 import menus from "../../../objects/menu";
 
@@ -32,7 +32,7 @@ const Menu = () => {
 
 export default Menu;
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
+const useStyles = makeStyles<InboxMenuStyles>({
   listItemButton: {
     justifyContent: "space-between",
   },
@@ -44,7 +44,7 @@ const makeStyles = (theme: Theme, dependencies: any[]) => ({
 });
 
 const InboxMenu = () => {
-  const styles = useStyles(makeStyles, []);
+  const styles = useStyles();
 
   return (
     <ListItem key={PARENT_MENU} disablePadding>

@@ -10,10 +10,11 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import FormHelperText from "@mui/material/FormHelperText";
 import Button from "@mui/material/Button";
-import { useTheme, type Theme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { StepValue } from "./../../../../types/components";
+import { FirstStepStyles } from "./../../../../types/styles";
 import {
   ALPHA_REGEX,
   ALPHA_REGEX_ERROR,
@@ -27,9 +28,9 @@ import selectOptions from "../../../../objects/verticalOptions";
 import selectChecks from "../../../../objects/businessChecks";
 import FieldLabel from "../../../../components/utilities/FieldLabel";
 import Required from "../../../../components/utilities/Required";
-import useStyles from "../../../../hooks/useStyles";
+import { makeStyles, type Theme } from "mui-styles-hook";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
+const useStyles = makeStyles<FirstStepStyles>({
   checkFormGroup: {
     flexDirection: "row",
     "& > .MuiFormControlLabel-root": {
@@ -91,7 +92,7 @@ const Form = forwardRef(
     ref
   ) => {
     const theme = useTheme();
-    const styles = useStyles(makeStyles, []);
+    const styles = useStyles();
 
     const [initialValues] = useState({
       business_name: stepValues.values.business_name || "",

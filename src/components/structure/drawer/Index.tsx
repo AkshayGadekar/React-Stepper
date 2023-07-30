@@ -1,24 +1,26 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import { type Theme } from "@mui/material/styles";
 import Logo from "./Logo";
 import Menu from "./Menu";
 import type { DrawerProps } from "../../../types/components";
 import User from "./User";
-import useStyles from "../../../hooks/useStyles";
+import { makeStyles, type Theme } from "mui-styles-hook";
+import { DrawerStyles, DrawerStylesDeps } from "../../../types/styles";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
-  temporaryDrawer: {
-    display: { xs: "block", md: "none" },
-  },
-  permanentDrawer: {
-    display: { xs: "none", md: !dependencies[0] ? "block" : "none" },
-  },
-});
+const useStyles = makeStyles<DrawerStyles, DrawerStylesDeps>(
+  (theme: Theme, deps) => ({
+    temporaryDrawer: {
+      display: { xs: "block", md: "none" },
+    },
+    permanentDrawer: {
+      display: { xs: "none", md: !deps.hideDrawer ? "block" : "none" },
+    },
+  })
+);
 
 const Index = ({ mobileOpen, handleDrawerToggle, hideDrawer }: DrawerProps) => {
-  const styles = useStyles(makeStyles, [hideDrawer]);
+  const styles = useStyles({ hideDrawer });
 
   return (
     <Box component="nav">

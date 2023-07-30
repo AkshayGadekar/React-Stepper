@@ -1,23 +1,29 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
-import { type Theme, useTheme } from "@mui/material/styles";
-import useStyles from "../../hooks/useStyles";
+import { makeStyles, type Theme } from "mui-styles-hook";
+import {
+  IconButtonContainerStyles,
+  IconButtonContainerStylesDeps,
+} from "../../types/styles";
 import type { IconButtonContainerProps } from "../../types/components";
 import { convertHexToRGBA } from "../../functions/helpers";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
+const useStyles = makeStyles<
+  IconButtonContainerStyles,
+  IconButtonContainerStylesDeps
+>((theme: Theme, deps) => ({
   iconStyles: {
     color: "#fff",
   },
   IconButtonStyles: {
     borderRadius: "50%",
     padding: "8px",
-    backgroundColor: dependencies[0],
+    backgroundColor: deps.bgColor,
     "&:hover": {
-      backgroundColor: convertHexToRGBA(dependencies[0], 0.7),
+      backgroundColor: convertHexToRGBA(deps.bgColor, 0.7),
     },
   },
-});
+}));
 
 const IconButtonContainer = ({
   icon,
@@ -25,8 +31,7 @@ const IconButtonContainer = ({
   iconStyles,
   IconButtonStyles,
 }: IconButtonContainerProps) => {
-  const theme = useTheme();
-  const styles = useStyles(makeStyles, [bgColor]);
+  const styles = useStyles({ bgColor });
   const Icon = icon;
   return (
     <IconButton

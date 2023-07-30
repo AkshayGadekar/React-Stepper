@@ -2,27 +2,30 @@ import React, { useState, forwardRef, useImperativeHandle } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
-import { useTheme, type Theme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import FormHelperText from "@mui/material/FormHelperText";
 import { StepValue } from "./../../../../types/components";
-import useStyles from "../../../../hooks/useStyles";
+import { ThirdStepFooterStyles } from "./../../../../types/styles";
+import { makeStyles, type Theme } from "mui-styles-hook";
 import {
   TABLE_BORDER_COLOR,
   TOTAL_CHARGES_LABEL,
   TOTAL_CHARGES,
 } from "../../../../config";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "flex-start",
-  pt: "1rem",
-  "& .MuiCheckbox-root": {
-    position: "relative",
-    bottom: "10px",
-  },
-  "& .MuiTypography-root": {
-    cursor: "pointer",
+const useStyles = makeStyles<ThirdStepFooterStyles>({
+  checkContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    pt: "1rem",
+    "& .MuiCheckbox-root": {
+      position: "relative",
+      bottom: "10px",
+    },
+    "& .MuiTypography-root": {
+      cursor: "pointer",
+    },
   },
 });
 
@@ -36,7 +39,7 @@ const Footer = forwardRef(({ stepValues }: { stepValues: StepValue }, ref) => {
       : true
   );
   const [error, setError] = useState("");
-  const styles = useStyles(makeStyles, []);
+  const styles = useStyles();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
@@ -84,7 +87,7 @@ const Footer = forwardRef(({ stepValues }: { stepValues: StepValue }, ref) => {
       >
         {PAYMENT_INFO}
       </Typography>
-      <Box sx={styles}>
+      <Box sx={styles.checkContainer}>
         <Checkbox
           checked={checked}
           onChange={handleChange}

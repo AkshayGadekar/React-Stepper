@@ -1,24 +1,25 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { type Theme } from "@mui/material/styles";
-import useStyles from "../../../hooks/useStyles";
+import { makeStyles, type Theme } from "mui-styles-hook";
+import { UserStyles, UserInfoStyles } from "../../../types/styles";
 import userImage from "../../../media/images/user.png";
 
-const makeStylesUser = (theme: Theme, dependencies: any[]) => ({
-  display: "flex",
-  columnGap: ".5rem",
-  padding: "1rem 1rem 1rem 1rem",
-  [theme.breakpoints.up("sm")]: {
-    padding: "1rem 1.5rem 1rem 1.5rem",
+const useStylesUser = makeStyles<UserStyles>((theme: Theme) => ({
+  box: {
+    display: "flex",
+    columnGap: ".5rem",
+    padding: "1rem 1rem 1rem 1rem",
+    [theme.breakpoints.up("sm")]: {
+      padding: "1rem 1.5rem 1rem 1.5rem",
+    },
   },
-});
-
+}));
 const User = () => {
-  const styles = useStyles(makeStylesUser, []);
+  const styles = useStylesUser();
 
   return (
-    <Box sx={styles}>
+    <Box sx={styles.box}>
       <UserImg />
       <UserInfo />
     </Box>
@@ -29,7 +30,7 @@ export default User;
 
 const UserImg = () => <Box component="img" src={userImage} />;
 
-const makeStylesUserInfo = (theme: Theme, dependencies: any[]) => ({
+const useStylesUserInfo = makeStyles<UserInfoStyles>({
   container: {
     display: "flex",
     flexDirection: "column",
@@ -43,7 +44,7 @@ const makeStylesUserInfo = (theme: Theme, dependencies: any[]) => ({
   },
 });
 const UserInfo = () => {
-  const styles = useStyles(makeStylesUserInfo, []);
+  const styles = useStylesUserInfo();
 
   return (
     <Box sx={styles.container}>

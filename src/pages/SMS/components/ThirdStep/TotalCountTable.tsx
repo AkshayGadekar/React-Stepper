@@ -5,33 +5,35 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { type Theme } from "@mui/material/styles";
-import useStyles from "../../../../hooks/useStyles";
+import { ThirdStepTotalCountTableStyles } from "../../../../types/styles";
+import { makeStyles, type Theme } from "mui-styles-hook";
 import {
   TABLE_BORDER_COLOR,
   TOTAL_CHARGES_LABEL,
   TOTAL_CHARGES,
 } from "../../../../config";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
-  tableContainer: { mb: 4, border: "none" },
-  tableRow: {
-    "&:last-child td, &:last-child th": { border: 0 },
-    "&:is(.pro-rates, .taxes) > *": {
-      fontSize: "1rem!important",
-      fontWeight: "500!important",
-      border: "none",
+const useStyles = makeStyles<ThirdStepTotalCountTableStyles>(
+  (theme: Theme) => ({
+    tableContainer: { mb: 4, border: "none" },
+    tableRow: {
+      "&:last-child td, &:last-child th": { border: 0 },
+      "&:is(.pro-rates, .taxes) > *": {
+        fontSize: "1rem!important",
+        fontWeight: "500!important",
+        border: "none",
+      },
+      "&:is(.subtotal, .charges) > *": {
+        fontSize: "1.25rem!important",
+        fontWeight: "500!important",
+        borderBottom: `1px solid ${TABLE_BORDER_COLOR}!important`,
+      },
     },
-    "&:is(.subtotal, .charges) > *": {
-      fontSize: "1.25rem!important",
-      fontWeight: "500!important",
-      borderBottom: `1px solid ${TABLE_BORDER_COLOR}!important`,
+    lastTableCell: {
+      color: theme.palette.primary.dark,
     },
-  },
-  lastTableCell: {
-    color: theme.palette.primary.dark,
-  },
-});
+  })
+);
 
 function createData(label: string, quantity: string, className: string) {
   return { label, quantity, className };
@@ -45,7 +47,7 @@ const rows = [
 ];
 
 const TotalCountTable = () => {
-  const styles = useStyles(makeStyles, []);
+  const styles = useStyles();
 
   return (
     <TableContainer component={Paper} sx={styles.tableContainer}>

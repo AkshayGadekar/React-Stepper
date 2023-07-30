@@ -4,14 +4,17 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import CheckIcon from "@mui/icons-material/Check";
-import { type Theme } from "@mui/material/styles";
 import SnackBar from "../../../components/utilities/SnackBar";
 import { StepControlsProps } from "../../../types/components";
-import useStyles from "../../../hooks/useStyles";
+import {
+  StepControlsStyles,
+  StepControlsStylesDeps,
+} from "../../../types/styles";
 import { saveIntoLocalStorage } from "../../../functions/helpers";
+import { makeStyles, type Theme } from "mui-styles-hook";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => {
-  return {
+const useStyles = makeStyles<StepControlsStyles, StepControlsStylesDeps>(
+  (theme: Theme, deps) => ({
     stepperFooter: {
       display: "flex",
       flexDirection: "row",
@@ -26,7 +29,7 @@ const makeStyles = (theme: Theme, dependencies: any[]) => {
       alignItems: "center",
     },
     stepperBackButton: {
-      display: dependencies[0] !== 0 ? undefined : "none",
+      display: deps.activeStep !== 0 ? undefined : "none",
       backgroundColor: "#8c97a0",
       "&:hover": {
         backgroundColor: theme.palette.grey[700],
@@ -36,13 +39,13 @@ const makeStyles = (theme: Theme, dependencies: any[]) => {
       transform: "rotate(180deg)",
     },
     stepperNextButton: {
-      display: dependencies[0] !== 3 ? undefined : "none",
+      display: deps.activeStep !== 3 ? undefined : "none",
     },
     stepperSubmitButton: {
-      display: dependencies[0] === 3 ? undefined : "none",
+      display: deps.activeStep === 3 ? undefined : "none",
     },
-  };
-};
+  })
+);
 
 const StepControls = ({
   handleBack,
@@ -52,7 +55,7 @@ const StepControls = ({
   allStepValues,
 }: StepControlsProps) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const styles = useStyles(makeStyles, [activeStep]);
+  const styles = useStyles({ activeStep });
 
   const submit = () => {
     saveIntoLocalStorage("allStepValues", allStepValues);

@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { IconContainerProps } from "../../types/components";
-import useStyles from "../../hooks/useStyles";
-import { type Theme } from "@mui/material/styles";
+import { IconContainerStyles } from "../../types/styles";
+import { makeStyles, type Theme } from "mui-styles-hook";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
+const useStyles = makeStyles<IconContainerStyles>({
   iconContainer: {
     mb: "0!important",
     fontSize: 0,
@@ -22,7 +22,7 @@ const IconContainer = ({
   iconStyles,
   IconContainerStyles,
 }: IconContainerProps) => {
-  const styles = useStyles(makeStyles, []);
+  const styles = useStyles();
   const Icon = icon;
   return (
     <Box

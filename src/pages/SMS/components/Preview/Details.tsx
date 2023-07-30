@@ -3,10 +3,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import useStyles from "../../../../hooks/useStyles";
-import { type Theme } from "@emotion/react";
+import { PreviewAccordionDetailsStyles } from "../../../../types/styles";
+import { makeStyles, type Theme } from "mui-styles-hook";
 
-const makeStyles = (theme: Theme, dependencies: any[]) => ({
+const useStyles = makeStyles<PreviewAccordionDetailsStyles>({
   list: {
     "& .MuiListItem-root": { py: 0 },
   },
@@ -23,7 +23,7 @@ const makeStyles = (theme: Theme, dependencies: any[]) => ({
 });
 
 const Details = ({ label, value }: { label: string; value: string }) => {
-  const styles = useStyles(makeStyles, []);
+  const styles = useStyles();
   return (
     <AccordionDetails>
       <List sx={styles.list}>
