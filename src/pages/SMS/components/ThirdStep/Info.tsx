@@ -5,7 +5,7 @@ import Alert from "@mui/material/Alert";
 
 const STEP = "Brand Registration Payment Confirmation";
 const STEP_WARNING =
-  "TCR feels are non-refundable and are set by mobile carriers and their registrar. Phone.com is not charging any additional fees or TCS registration and pays a portion of the per-message carrier fees for our customer.";
+  "TCR feels are non-refundable and are set by mobile carriers and their registrar. Abc.co is not charging any additional fees or TCS registration and pays a portion of the per-message carrier fees for our customer.";
 
 const Info = () => {
   return (

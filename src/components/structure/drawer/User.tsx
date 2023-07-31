@@ -49,10 +49,10 @@ const UserInfo = () => {
   return (
     <Box sx={styles.container}>
       <Typography variant="thick" sx={styles.userName}>
-        Dheeraj Katarya
+        Matthew Wade
       </Typography>
       <Typography variant="thin" sx={styles.companyTitle}>
-        Phone.com
+        Abc.co
       </Typography>
     </Box>
   );

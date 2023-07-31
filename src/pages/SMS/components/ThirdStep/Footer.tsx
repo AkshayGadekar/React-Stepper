@@ -30,7 +30,7 @@ const useStyles = makeStyles<ThirdStepFooterStyles>({
 });
 
 const PAYMENT_INFO =
-  "All charges will appear on your statement this way Phone.com. We'll use this payment method on file for the account. Your payment information is encrypted and processed on a secure server.";
+  "All charges will appear on your statement this way Abc.co. We'll use this payment method on file for the account. Your payment information is encrypted and processed on a secure server.";
 
 const Footer = forwardRef(({ stepValues }: { stepValues: StepValue }, ref) => {
   const [checked, setChecked] = useState(

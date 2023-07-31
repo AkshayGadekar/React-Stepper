@@ -21,6 +21,6 @@ const LogoImg = () => <Box component="img" src={logo} />;
 
 const CompanyTitle = () => (
   <Typography variant="logo" ml={1}>
-    Phone.com
+    Abc.co
   </Typography>
 );
