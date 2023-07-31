@@ -2,7 +2,7 @@
 
 ## Dashboard
 
-![Dashboard UI](https://github.com/AkshayGadekar/Phone.com-React-Test/tree/main/src/media/images/dashboardUI.png)
+![Dashboard UI](https://github.com/AkshayGadekar/Phone.com-React-Test/blob/main/src/media/images/dashboardUI.png)
 
 This is custom dashboard built using react material UI. It has following added functionalities:
 
