@@ -15,6 +15,7 @@ This is custom dashboard built using react material UI. It has Stepper at "SME E
 - Drawer and Stepper hooks
 - Folder Structure suitable for big projects
 - Typescript interfaces for Material UI components
+- Use of `mui-styles-hook` package for Styling
 - Clean React Code
 
 ## How to use
