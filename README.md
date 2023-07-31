@@ -23,7 +23,7 @@ This is custom dashboard built using react material UI. It has Stepper at "SME E
 Clone this repo and run:
 
 ```bash
-cd React-MUI-Dashboard-with-TypeScript
+cd React-Stepper
 npm install
 npm start
 ```
