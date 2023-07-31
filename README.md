@@ -12,7 +12,7 @@ This is custom dashboard built using react material UI. It has Stepper at "SME E
 - Validations at each Step
 - Perfect logic to get Steps Data
 - Way to store Steps data in localStorage and Fetch it again
-- Drawer and Stepper hooks
+- Drawer and Stepper custom hooks
 - Folder Structure suitable for big projects
 - Typescript interfaces for Material UI components
 - Use of `mui-styles-hook` package for Styling
