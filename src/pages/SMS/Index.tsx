@@ -30,7 +30,7 @@ const HorizontalLinearStepper = () => {
   return (
     <Box sx={{ width: "100%", p: { xs: 1, md: 2, lg: 3 } }}>
       <StepperBar activeStep={activeStep} />
-      <Tabs />
+      {/* <Tabs /> */}
       <Steps
         stepperHookParams={[
           activeStep,

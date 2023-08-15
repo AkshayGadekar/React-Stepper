@@ -9,9 +9,9 @@ const Navigations = () => {
   return (
     <Suspense fallback={<SuspenseProgressBar />}>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        {/* <Route path="/" element={<Dashboard />} /> */}
         <Route path="/sms-enrollment" element={<SMSEnrollment />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/sms-enrollment" replace />} />
       </Routes>
     </Suspense>
   );
